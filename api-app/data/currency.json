@@ -1,0 +1,10 @@
+{
+    "YEN": {
+        "symbol"    :   "\\",
+        "formatter" :   "{price:,d} 円(税込)"
+    },
+    "USD": {
+        "symbol"    :   "$",
+        "formatter" :   "{symbol} {price:,.2f} (Tax Included)"
+    }
+}

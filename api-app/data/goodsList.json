@@ -1,0 +1,52 @@
+{
+    "goods" : [
+        {
+            "name" : "TシャツA",
+            "price" : 1000
+        },
+        {
+            "name" : "TシャツB",
+            "price" : 2000
+        },
+        {
+            "name" : "TシャツC",
+            "price" : 7500
+        },
+        {
+            "name" : "TシャツD",
+            "price" : 4700
+        },
+        {
+            "name" : "TシャツE",
+            "price" : 1200
+        },
+        {
+            "name" : "TシャツF",
+            "price" : 3600
+        },
+        {
+            "name" : "TシャツG",
+            "price" : 6500
+        },
+        {
+            "name" : "TシャツH",
+            "price" : 4250
+        },
+        {
+            "name" : "TシャツI",
+            "price" : 6600
+        },
+        {
+            "name" : "TシャツJ",
+            "price" : 2100
+        },
+        {
+            "name" : "TシャツK",
+            "price" : 1250
+        },
+        {
+            "name" : "TシャツL",
+            "price" : 4200
+        }
+    ]
+}

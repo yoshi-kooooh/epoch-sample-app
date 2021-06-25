@@ -1,0 +1,186 @@
+/*
+#   Copyright 2019 NEC Corporation
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+*/
+
+*{margin:0;padding:0;outline:0;text-decoration:none;list-style:none;box-sizing:border-box}
+html,body{width:100%;height:100%}
+body>div{width:100%}
+.clearfix:after{display:block;clear:both;height:0;visibility:hidden;font-size:0;line-height:0;content:"";zoom:1}
+.fl{float:left}
+.fr{float:right}
+a:hover,a:active,a:visited,a:link,a:focus{text-decoration:none !important;outline:0}
+@media screen and (min-width:480px){.body_scroll_remove{height:auto;overflow:auto}
+.faceSearchPC{width:100%;display:block}
+.nec-wapSearch{display:none}
+.faceSearchPC .conent{margin:0 auto;padding-top:20px}
+.faceSearchPC .conent .detailInfo{width:100%;background-color:#fff}
+.faceSearchPC .conent .searchResultTitle{width:1200px;margin:0 auto;margin-bottom:15px;font-size:18px;color:#000;padding-left:10px}
+.faceSearchPC .conent .options{padding-left:14px 0 6px;border-bottom:1px solid #eaeaea;padding-left:20px;width:1200px;margin:0 auto}
+.faceSearchPC .conent .options li{height:35px;line-height:35px;border-radius:5px;text-align:center;margin:0 10px 10px;float:left;font-size:14px;position:relative}
+.faceSearchPC .conent .options li:first-child{margin-left:0}
+.faceSearchPC .conent .options li::after{content:"";position:absolute;height:18px;top:8px;right:-10px;border:1px solid #eaeaea}
+.faceSearchPC .conent .options li.active{background-color:#dee8eb}
+.faceSearchPC .conent .options li a{height:35px;line-height:35px;border-radius:5px;text-align:center;float:left;font-size:14px;position:relative;padding:0 78px;cursor:pointer}
+.faceSearchPC .conent .productInformation .configuration{width:1200px;margin:0 auto;margin-top:43px;padding-bottom:30px;font-size:14px}
+.faceSearchPC .conent .configuration li{position:relative;padding-left:10px;border-bottom:1px solid #eaeaea}
+.faceSearchPC .conent .configuration .configurationName{width:158px;float:left;position:absolute;top:50%;left:10px;transform:translateY(-50%);font-weight:900}
+.faceSearchPC .conent .configuration .configurationItem{margin-left:158px;padding-top:22px}
+.faceSearchPC .conent .configuration .configurationItem .item{padding-left:25px;width:17%;float:left;position:relative;cursor:pointer;margin-bottom:18px}
+.faceSearchPC .conent .configuration .configurationItem .item::before{content:"";position:absolute;width:10px;height:10px;border:1px solid #000;top:5px;left:4px}
+.faceSearchPC .conent .configuration .configurationItem .item.checked::before{background:url(//p1-nec.static.pub/fes/cms/2020/03/21/ohm6vlrasfg7vjwz21h3d16b674rri573788.jpg) 0 0 #000 no-repeat;background-size:100% 100%}
+.faceSearchPC .resultbar .footUl .priceContent{margin-left:169px;padding-top:6px}
+.faceSearchPC .resultbar .footUl .price{display:inline-block;width:103px;height:22px;line-height:22px;border:1px solid #dcdcdc;margin-bottom:18px}
+.faceSearchPC .resultbar .footUl .price input{width:86px;border:0;padding-left:5px;box-sizing:border-box;float:left;height:100%}
+.faceSearchPC .conent .month{font-size:14px;color:#7f7f7f;width:1200px;margin:0 auto;margin-top:22px;margin-bottom:18px}
+.faceSearchPC .conent .month li{float:left;text-decoration:underline;padding-left:16px;padding-right:18px;position:relative;cursor:pointer}
+.faceSearchPC .conent .month li.active a{color:#f4364c}
+.faceSearchPC .conent .month li::after{position:absolute;border-right:2px solid #bbb;top:5px;height:12px;right:0;content:""}
+.faceSearchPC .conent .month li:first-child{padding-left:10px}
+.faceSearchPC .conent .newsList{width:100%;background-color:#eaeaea;padding-top:20px}
+.faceSearchPC .conent .newsList ul{width:1200px;margin:0 auto;background-color:#fff;box-sizing:border-box;padding:35px;padding-top:9px;font-size:14px;color:#6b6b6b}
+.faceSearchPC .conent .newsList ul.newContent li{padding-top:26px;padding-bottom:26px;border-bottom:1px solid #ccc}
+.faceSearchPC .conent .newsList ul p{word-break:break-all;white-space:normal;max-height:120px;overflow:hidden;text-overflow:ellipsis;position:relative;line-height:20px}
+.faceSearchPC .conent .newsList ul .newTitle{font-size:16px;color:#000;font-weight:900;margin-bottom:14px;word-break:break-all;white-space:normal}
+.faceSearchPC .conent .newsList ul .newTitle a{color:#1a76a1;font-weight:900}
+.faceSearchPC .conent .newsList ul a:nth-child(2){text-decoration:underline !important}
+.faceSearchPC .conent .productContent{min-height:500px;padding:0 25px 0 30px;background-color:#eaeaea;padding-top:35px}
+.faceSearchPC .conent .productContent ul{padding-bottom:28px;width:1200px;margin:0 auto}
+.faceSearchPC .conent .productContent li{width:276px;height:440px;float:left;margin-right:13px;margin-bottom:13px;background-color:#fff;box-sizing:border-box;padding:20px 15px 16px;color:#2f2f2f;position:relative}
+.faceSearchPC .conent .productContent li .tip{position:absolute;width:90%;z-index:1}
+.faceSearchPC .conent .productContent .productList li:nth-child(4n-0){margin-right:0}
+.faceSearchPC .conent .productContent li .screenSize{padding:1px 7px;color:blue; background-color:rgba(234,234,234,0.75);font-size:12px;line-height:17px;height:18px;overflow:hidden;text-overflow:ellipsis;word-break:keep-all;max-width:100%}
+.faceSearchPC .conent .productContent li .compare{font-size:12px;position:relative;padding-right:29px;cursor:pointer}
+.faceSearchPC .conent .productContent li .compare::after{font-size:12px;position:relative;width:18px;height:18px;border:1px solid #dcdcdc;position:absolute;top:0;right:0;content:""}
+.faceSearchPC .conent .productContent li .imgBox{height:160px;width:100%;text-align:center;border-bottom:1px solid #eaeaea}
+.faceSearchPC .conent .productContent li .imgBox a{display:block;width:100%;height:100%;position:relative;cursor:pointer}
+.faceSearchPC .conent .productContent li .imgBox img{object-fit:contain;width:100%;height:100%}
+.faceSearchPC .conent .productContent li .imgBox .officeIcon{position:absolute;width:50px;height:50px;border:1px solid red;bottom:0;right:0}
+.faceSearchPC .conent .productContent li .productInfo{font-size:12px;height:224px;color:#000;position:relative}
+.faceSearchPC .conent .productContent li .productInfo .name{margin-bottom:4px;margin-top:10px;height:46px;line-height:16px;overflow:hidden;white-space:normal;word-break:break-all;text-overflow:ellipsis;font-weight:600;font-size:15px}
+.faceSearchPC .conent .productContent li .productInfo a{display:block;position:relative;height:68px;cursor:pointer}
+.faceSearchPC .conent .productContent li .productInfo .info{margin-bottom:10px;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;line-height:13px}
+.faceSearchPC .conent .productContent li .productInfo .price{font-size:15px;float:left;width:100%;font-weight:400;overflow:hidden;text-overflow:ellipsis;word-break:break-all;white-space:nowrap}
+/* .faceSearchPC .conent .productContent li .productInfo .price{font-size:18px;float:left;width:100%;font-weight:400;height:27px;overflow:hidden;text-overflow:ellipsis;word-break:break-all;white-space:nowrap} */
+.faceSearchPC .conent .productContent li .productInfo .price span{font-size:12px;font-weight:normal}
+.faceSearchPC .conent .productContent li .productInfo .productDetails{width:122px;height:22px;line-height:22px;padding-left:20px;background-color:#87999f;border-radius:4px;color:#fff;float:right;text-align:center;background:url(//p3-nec.static.pub/fes/cms/2020/04/13/010zayr6ckyh5ur4s2q8oqoxfwkhq1592200.png) 0 0 no-repeat #87999f;background-position:left center;background-position-x:8px;margin-top:2px;cursor:pointer}
+.faceSearchPC .conent .productContent li .productInfo .leadTimeMsg{background:url(//p3-nec.static.pub/fes/cms/2020/04/10/g49wjrrz7cg6ph790hdy1k5ua0w89p806712.png) 0 0 no-repeat;padding-left:18px;float:left;margin-top:7px;width:100%;line-height:17px;position:absolute;bottom:20px}
+.faceSearchPC .conent .productContent li .productInfo .point{font-size:10px;color:#999}
+.faceSearchPC .conent .productContent li .productInfo .shoppingCart{display:block;padding:0 10px;text-align:center;border-radius:3px;position:absolute;bottom:-16px;cursor:pointer;width:100%;height:32px;line-height:32px;background-color:#111;font-size:12px;color:#fff}
+.faceSearchPC .conent .productContent li .productInfo .shoppingCartGray{background-color:#b7b3b3;width:100%;padding:0 10px;text-align:center;border-radius:3px;position:absolute;bottom:-16px;color:#fff;height:32px;line-height:32px}
+.faceSearchPC .conent .paging{text-align:center;width:1200px;margin:0 auto;padding:35px}
+.faceSearchPC .conent .paging ul{display:inline-block;margin:0 auto;padding:0;width:auto;background-color:#eaeaea}
+.faceSearchPC .conent .paging li{width:32px;height:32px;font-size-adjust:14px;color:#939393;text-align:center;line-height:32px;padding:0;margin-right:18px;border:1px solid #b0b0b0;margin-bottom:0;cursor:pointer;float:left;background-color:#fff}
+.faceSearchPC .conent .paging li.active{color:#ea5a45}
+.faceSearchPC .conent .paging li a{display:block;width:100%;height:100%}
+.faceSearchPC .conent .paging li.active a{color:#ea5a45}
+.faceSearchPC .conent .paging li.ellipsis{cursor:no-drop;color:#000}
+.faceSearchPC .conent .paging li.ellipsis.active{color:#000;cursor:no-drop}
+.faceSearchPC .conent .paging .pre,.faceSearchPC .conent .paging .next{width:64px;color:#fff;background-color:#c4c4c4;font-size:12px;line-height:30px}
+.faceSearchPC .resultbar{width:100%;height:auto;line-height:60px;margin:0 auto;font-size:12px}
+.faceSearchPC .resultbar .headUl{background-color:#fff;position:relative}
+.faceSearchPC .resultbar .headUl .resultBox{width:1200px;margin:0 auto}
+.faceSearchPC .resultbar .headUl input{border-bottom:1px solid #e0e0e0 !important;padding-right:5px}
+.faceSearchPC .resultbar .direct_wordinfo{padding:15px 10px;margin-bottom:10px;font-size:14px;font-weight:700;background-color:#fffdee;border:1px solid #edd28b;color:#666;width:1208px;margin:0 auto}
+.faceSearchPC .resultbar .direct_wordinfo span{position:relative;color:#f4364c;margin-right:17px;margin-left:-10px}
+.faceSearchPC .noresut_tipinfo{padding:40px 0px 40px 25px;background-color:#f2f2f2;color:#333;font-size:16px;line-height:normal;text-align:center;margin-bottom:20px}
+.faceSearchPC .resultbar .noresut_tipinfo span{position:relative;color:#e92e25;position:relative;margin-right:30px}
+.faceSearchPC .resultbar .direct_wordinfo .key1{color:#c00;position:static;margin:0}
+.faceSearchPC .resultbar .direct_wordinfo .key2{color:#005aa0}
+.faceSearchPC .resultbar li{width:auto;height:100%;line-height:60px;text-align:center;display:inline-block;text-align:center;text-align:left;margin-right:50px;padding-left:25px}
+.faceSearchPC .resultbar li a{display:block;width:100%;height:100%;font-size:14px;color:#000;text-decoration:none;position:relative}
+.faceSearchPC .resultbar li.multipleSelect a{padding-left:14px}
+.faceSearchPC .resultbar .smallNav{width:auto;height:100%;text-align:center;display:inline-block;text-align:center;text-align:left;position:relative;padding-right:13px;background:url(//p4-nec.static.pub/fes/cms/2020/03/21/er0g6vkee9kudujwo4eju9ffjseoae167405.png) 0 0 no-repeat;background-position-x:right;background-position-y:center}
+.faceSearchPC .resultbar .smallNav span{display:inline-block;vertical-align:middle;width:auto;height:30px;line-height:30px;border:1px solid #dadada;padding:0 10px;background-color:#fff;cursor:pointer;position:static}
+.faceSearchPC .resultbar .resultBox div:nth-last-child(2){background:0}
+.faceSearchPC .smallNav .selectUl{padding:10px}
+.faceSearchPC .smallNav .selectUl a{margin-right:20px;color:#000;font-size:13px}
+.faceSearchPC .resultbar .smallNav span{position:static}
+.faceSearchPC .resultbar .allresult{width:120px;color:#000;padding-left:20px;display:inline-block}
+.faceSearchPC .resultbar .allresult a{vertical-align:middle;color:#333;text-decoration:none;outline:0;word-break:break-all;white-space:nowrap;width:100%;display:inline-block}
+.faceSearchPC .resultbar li select{width:116px;height:30px;border:1px solid #dadada;padding-left:10px;background-color:#fff;appearance:none;-webkit-appearance:none;-moz-appearance:none;background:url(//p3-nec.static.pub/fes/cms/2020/03/21/pdmm0sqcmgzhd2uh3hgxru2m0ms886932602.png) 0 0 no-repeat;background-position-x:96px;background-position-y:11px}
+.faceSearchPC .resultbar li span{margin-left:0;cursor:pointer}
+.faceSearchPC .resultbar li span:hover{color:#e2231a}
+.faceSearchPC .resultbar li.select-item{position:relative;width:55%;vertical-align:top}
+.faceSearchPC .resultbar .smallTip{height:30px;line-height:30px;padding-left:10px;padding-right:30px;background-image:none;border:1px solid #dadada;background-color:#fff;display:inline-block;vertical-align:middle;text-decoration:none;cursor:pointer;position:relative;margin-right:20px}
+.faceSearchPC .resultbar .keyWord{display:inline-block}
+.faceSearchPC .resultbar .keyWord a{color:#000;text-decoration:none}
+.faceSearchPC .resultbar i{color:#000;font-style:normal}
+.faceSearchPC .resultbar span i{background:url(//p1-nec.static.pub/fes/cms/2020/03/24/1lxursdcgh3pmykk4sgdnvp8s5i0qe492601.png) 0 0 no-repeat;background-position-x:96%;background-position-y:12px;width:20px;height:20px;float:right}
+.faceSearchPC .resultbar span.open i{background:url(//p1-nec.static.pub/fes/cms/2020/03/24/n9vj64ljsd3w8adzh4bg12fwbj3rpt490073.png) 0 0 no-repeat;background-position-x:5px;background-position-y:12px}
+.faceSearchPC .resultbar em{color:#e2231a !important;font-style:normal}
+.faceSearchPC .resultbar .clearBtn{font-size:14px;color:red;position:absolute;cursor:pointer;top:0;right:10px;font-weight:400}
+.faceSearchPC .resultbar span{position:absolute;right:-14px;top:0;color:#000}
+.faceSearchPC .resultbar .productNum{float:right;height:48px;text-align:center}
+.faceSearchPC .resultbar .productNum .num{color:red;font-size:16px;margin-left:5px;margin-right:5px;position:static}
+.faceSearchPC .resultbar .detail li{width:100%;height:54px;display:block;text-align:left;border-bottom:1px solid #e0e0e0}
+.faceSearchPC .resultbar .detail li .tip{width:110px;display:inline-block;color:#bebebe;padding-left:5px}
+.faceSearchPC .resultbar .detail li .multipleChoice{float:right;background:url(//p3-nec.static.pub/fes/cms/2020/03/21/pdmm0sqcmgzhd2uh3hgxru2m0ms886932602.png) 0 0 no-repeat;background-position-x:35px;background-position-y:20px;width:74px;color:#bebebe;cursor:pointer}
+.faceSearchPC .resultbar .detail li span{display:inline-block;width:110px}
+.faceSearchPC .resultbar .footUl{width:1200px;margin:0 auto;background-color:#fff;position:relative;border-bottom:1px solid #eaeaea}
+.faceSearchPC .resultbar .footUl .duoxuan{float:right;width:6%;text-align:left;background:url(//p3-nec.static.pub/fes/cms/2020/03/21/pdmm0sqcmgzhd2uh3hgxru2m0ms886932602.png) 0 0 no-repeat;background-position-x:98%;background-position-y:26px;cursor:pointer}
+.faceSearchPC .resultbar .footUl .tip{width:12%;color:#000;font-weight:bold;text-align:left;padding-left:20px;float:left;font-size:14px}
+.faceSearchPC .resultbar .footUl .danxuanUl{cursor:pointer;margin-bottom:0;width:80%;line-height:normal;float:left;height:auto;line-height:48px;overflow:hidden}
+.faceSearchPC .resultbar .footUl .danxuanUl li:hover{color:#eb5d4a}
+.faceSearchPC .resultbar .gaoji{width:1200px;position:static;margin-left:0px;margin:10px auto}
+.faceSearchPC .resultbar .gaoji .tip{width:13%;color:#000;text-align:left;padding-left:20px;margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;font-weight:bolder}
+.faceSearchPC .resultbar .gaoji li{width:auto;height:34px;line-height:30px;margin-right:5px;position:static;float:left;margin-bottom:10px}
+.faceSearchPC .resultbar .gaoji li:nth-child(2){padding-left:13px}
+.faceSearchPC .resultbar .gaoji li a{display:block;color:#000;width:100%;height:100%}
+.faceSearchPC .resultbar .gaoji li a:hover{text-decoration:none}
+.faceSearchPC .resultbar .gaoji li .selectInput{padding:0 4px 0 6px;border:1px solid #e5e5e5;background-color:#fff;cursor:pointer;width:auto;height:26px;line-height:26px;display:inline-block;position:static}
+.faceSearchPC .resultbar .gaoji li .selectInput i{background:url(//p2-nec.static.pub/fes/cms/2020/03/21/gizrfwk8nvae36oti1mt87aslo8nc2866615.png) 0 0 no-repeat;background-position-x:8px;background-position-y:12px;width:20px;height:24px;float:right;vertical-align:text-top}
+.faceSearchPC .resultbar .gaoji li .selectInput.open i{background:url(//p3-nec.static.pub/fes/cms/2020/03/21/33ldm8mf44j9uvcga4orih1sbfqvgm135647.png) 0 0 no-repeat;background-position-x:5px;background-position-y:9px;background-color:#fff}
+.faceSearchPC .resultbar .gaoji li.duoxuan{position:absolute;right:0;width:56px;padding-left:0;text-align:left;background:url(//p3-nec.static.pub/fes/cms/2020/03/21/pdmm0sqcmgzhd2uh3hgxru2m0ms886932602.png) 0 0 no-repeat;background-position-x:55px;background-position-y:12px;margin-right:20px}
+.faceSearchPC .resultbar li.multipleSelected a{padding-left:14px;position:relative}
+.faceSearchPC .resultbar .duoxuan .multipleChoice{position:static}
+.faceSearchPC .resultbar .gaoji input{outline:0;border:1px solid #e5e5e5;vertical-align:text-bottom;padding:0 10px;position:absolute;height:32px;line-height:32px}
+.faceSearchPC .resultbar .gaoji .selectUl{width:1200px;position:absolute;left:50%;margin:0 auto;margin-top:-4px;padding:20px 40px;font-size:14px;transform:translateX(-50%)}
+.faceSearchPC .resultbar .gaoji .duoxuanUl li{padding-left:26px}
+.faceSearchPC .resultbar .gaoji .duoxuanUl li a::before{display:block;width:10px;height:10px;border:1px solid #000;content:"";position:absolute;left:-17px;top:9px}
+.faceSearchPC .resultbar .gaoji .duoxuanUl li.multipleSelected a::before{display:block;width:10px;height:10px;background:url(//p2-nec.static.pub/fes/cms/2020/04/16/ncvzvxt9lebr5qhemtvio6olixek30282238.png) #000 0 0 no-repeat;background-position-x:0;background-position-y:0;content:"";position:absolute;left:-17px;top:9px}
+.faceSearchPC .resultbar .gaoji .duoxuanUl li a{display:block;width:100%;height:100%;text-decoration:none;color:#000;position:relative;padding-left:0}
+.faceSearchPC .resultbar .gaoji .duoxuanUl .btnGroup{display:block;width:100%;padding:0;text-align:center;background:0}
+.faceSearchPC .resultbar .gaoji .duoxuanUl .btnGroup .btn{height:24px;line-height:24px;border-radius:4px;padding:0 10px;cursor:pointer;background-color:#fff}
+.faceSearchPC .resultbar .gaoji .duoxuanUl .btnGroup .confirm{background-color:#fff;color:#000}
+.faceSearchPC .resultbar .gaoji .btnGroup input{position:static}
+.faceSearchPC .resultbar .footUl .duoxuanBox{display:none;cursor:pointer;margin-bottom:0;width:80%;line-height:normal;float:left;height:auto;line-height:48px;overflow:hidden}
+.faceSearchPC .resultbar .duoxuanBox .multipleSelect span{display:block;width:10px;height:10px;border:1px solid #000;position:absolute;left:0;top:50%;transform:translateY(-50%)}
+.faceSearchPC .resultbar .duoxuanBox .multipleSelected span{display:block;width:10px;height:10px;position:static;background:url(//p2-nec.static.pub/fes/cms/2020/04/16/ncvzvxt9lebr5qhemtvio6olixek30282238.png) #000 0 0 no-repeat;background-position-x:0;background-position-y:0;position:absolute;left:0;top:50%;transform:translateY(-50%)}
+.faceSearchPC .resultbar .duoxuanBox .btnGroup{width:100%;height:34px;line-height:30px;text-align:center;display:block;float:left;margin-bottom:20px}
+.faceSearchPC .resultbar .duoxuanBox .btnGroup input{height:24px;padding:0 10px;line-height:25px;border-radius:4px;position:static;border:1px solid #e5e5e5;cursor:pointer;background-color:#fff}
+.faceSearchPC .resultbar .duoxuanBox .btnGroup .confirm{color:#000}
+.faceSearchPC .selectUl{position:absolute;z-index:500;border:1px solid #e0e0e0;background-color:#fff;width:270px;margin-top:-17px;padding:20px 50px 10px;line-height:32px;display:none;text-align:left}
+.faceSearchPC .item::before{content:"";position:absolute;width:10px;height:10px;border:1px solid #000;top:5px;left:4px}
+a{color:#000}
+.faceSearchPC .conent .productContent li .productInfo em{font-style:normal}
+em{color:#1a76a1 !important;font-style:normal}
+.faceSearchPC .resultbar .footUl .priceBtn{display:inline-block;width:62px;height:22px;line-height:22px;border:1px solid #dcdcdc;margin-bottom:18px;position:relative;text-align:center;display:inline-block;cursor:pointer}
+.faceSearchPC .noresut_tipinfo span{color:#f4364c}
+}
+@media screen and (max-width:480px){.body_scroll_remove{height:100%;overflow:hidden}
+.faceSearchPC{display:none}
+::-webkit-input-placeholder{color:gray}
+:-moz-placeholder{color:gray}
+::-moz-placeholder{color:gray}
+:-ms-input-placeholder{color:gray}
+::-webkit-scrollbar{width:0px;height:1px}
+.deletemaskbg{width:100%;height:100%;background:rgba(0,0,0,.75);display:block;position:absolute;top:0;left:0;z-index:3000}
+.deleteBox{background-color:#fff;width:88%;height:auto;border-radius:10px;text-align:center;overflow:hidden;position:absolute;top:50%;left:50%;z-index:3000;transform:translatex(-50%) translateY(-50%);margin:0 auto}
+.deleteBox p{height:101px;line-height:101px;text-align:center;color:#232326;font-size:16px}
+.deleteBox .btnGroup{height:2.93rem}
+.deleteBox .btnGroup .cancel{width:50%;color:#232326;font-size:16px;text-align:center;line-height:44px;position:relative;border:0;float:left;background-color:#fff}
+.deleteBox .btnGroup .sure{float:left;width:49%;color:#fff;font-size:16px;background-color:#f23030;text-align:center;line-height:44px;border:0}
+}
+
