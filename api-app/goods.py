@@ -26,9 +26,6 @@ app = Flask(__name__)
 CORS(app)
 app.config['JSON_AS_ASCII'] = False
 
-# Response Price (currency)
-TARGET_RATES = ['YEN','USD']
-
 # Round Price
 NUM_DIGITS = 2
 
@@ -43,71 +40,8 @@ def alive():
 
     return jsonify({"result": "200", "time": str(datetime.now())}), 200
 
-
-@app.route('/goods', methods=['GET'])
-def index_goods():
-    """get goods list
-
-    Returns:
-        Response: HTTP Respose
-    """
-    try:
-        app.logger.debug("call index_goods()")
-
-        # read goods list file
-        with open(os.path.dirname(os.path.abspath(__file__)) + '/data/goodsList.json', 'r', encoding='utf-8') as goods_fp:
-            goods = json.load(goods_fp)
-
-        # read currency list file
-        with open(os.path.dirname(os.path.abspath(__file__)) + '/data/currency.json', 'r', encoding='utf-8') as currency_fp:
-            currencies = json.load(currency_fp)
-
-        # read rate list file
-        with open(os.path.dirname(os.path.abspath(__file__)) + '/data/rate.json', encoding='utf-8') as rates_fp:
-            rates = json.load(rates_fp)
-
-        # Calculate the price of each currency
-        resp_goods = []
-        goods_cnt = 0
-
-        for item in goods['goods']:
-            resp_price = []
-            goods_cnt += 1
-
-            for cur in TARGET_RATES:
-
-                # Calculate the price from the rate
-                if cur == 'YEN':
-                    price = item['price']
-                else:
-                    price = math.ceil(item['price'] / rates[cur] * pow(10,NUM_DIGITS)) / pow(10,NUM_DIGITS)
-
-                resp_price.append(
-                    {
-                        'currency' : cur,
-                        'symbol' : currencies[cur]['symbol'],
-                        'value' : price,
-                        'formated_value' : (currencies[cur]['formatter']).format(symbol=currencies[cur]['symbol'], price=price),
-                    }
-                )
-            
-            resp_goods.append(
-                {
-                    "id" : goods_cnt,
-                    "name" : item['name'],
-                    "price" : resp_price,
-                }
-            )
-
-        return jsonify({"result": "200", "goods": resp_goods}), 200
-
-    except Exception as e:
-        app.logger.error(''.join(list(traceback.TracebackException.from_exception(e).format())))
-        return jsonify({'result': '500'}), 500
-
-
-@app.route('/goods/<int:goods_id>', methods=['GET'])
-def index_goods_id(goods_id):
+@app.route('/goods/<int:goods_id>/<string:cur>', methods=['GET'])
+def index_goods_id(goods_id, cur):
     """get goods list with goods_id
 
     Returns:
@@ -140,22 +74,20 @@ def index_goods_id(goods_id):
             if goods_id != goods_cnt:
                 continue
 
-            for cur in TARGET_RATES:
+            # Calculate the price from the rate
+            if cur == 'YEN':
+                price = item['price']
+            else:
+                price = math.ceil(item['price'] / rates[cur] * pow(10,NUM_DIGITS)) / pow(10,NUM_DIGITS)
 
-                # Calculate the price from the rate
-                if cur == 'YEN':
-                    price = item['price']
-                else:
-                    price = math.ceil(item['price'] / rates[cur] * pow(10,NUM_DIGITS)) / pow(10,NUM_DIGITS)
-
-                resp_price.append(
-                    {
-                        'currency' : cur,
-                        'symbol' : currencies[cur]['symbol'],
-                        'value' : price,
-                        'formated_value' : (currencies[cur]['formatter']).format(symbol=currencies[cur]['symbol'], price=price),
-                    }
-                )
+            resp_price.append(
+                {
+                    'currency' : cur,
+                    'symbol' : currencies[cur]['symbol'],
+                    'value' : price,
+                    'formated_value' : (currencies[cur]['formatter']).format(symbol=currencies[cur]['symbol'], price=price),
+                }
+            )
             
             resp_goods.append(
                 {

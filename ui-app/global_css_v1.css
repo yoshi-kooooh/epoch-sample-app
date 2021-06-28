@@ -261,3 +261,22 @@ ul li,ol li{
 #lenovoSurveyWidget.lenovoSurveyWidget-left{
     bottom: 80px !important;
 }
+
+/* 通貨プルダウンタイトル */
+.currencyBoxTitle{
+    float: left; 
+    padding-right: 10px; 
+    font-size: 13pt; 
+    font-weight: bold;
+}
+
+/* 通貨プルダウン */
+.currencyBox{
+    float: left; 
+}
+
+/* 通貨プルダウンフォント */
+.currencyBoxFont{
+    float: left; 
+    font-size: 13pt; 
+}
