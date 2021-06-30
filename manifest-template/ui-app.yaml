@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ui-app-conf
+data:
+  front-end-conf.js: |
+    var api_port="31002";
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: ui-app
+spec:
+  selector:
+    matchLabels:
+      name: ui-app
+  replicas: {{ replicas }}
+  template:
+    metadata:
+      labels:
+        name: ui-app
+    spec:
+      volumes:
+      - name: ui-conf
+        configMap:
+          name: ui-app-conf
+      containers:
+      - name: ui-app
+        image: {{ image }}:{{ image_tag }}
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+        volumeMounts:
+        - name: ui-conf
+          mountPath: /app/js/config
+  strategy:
+    blueGreen:
+      activeService: ui-app-bluegreen-active
+      previewService: ui-app-bluegreen-preview
+      autoPromotionEnabled: true
+      scaleDownDelaySeconds: 120
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui-app-bluegreen-active
+  labels:
+    name: ui-app-bluegreen-active
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+    nodePort: 31001
+  selector:
+    name: ui-app
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui-app-bluegreen-preview
+  labels:
+    name: ui-app-bluegreen-preview
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+    nodePort: 32001
+  selector:
+    name: ui-app
