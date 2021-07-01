@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: ui-app-conf
 data:
-  front-end-conf.js: |
+  front-end-config.js: |
     var api_port="31002";
 ---
 apiVersion: argoproj.io/v1alpha1
