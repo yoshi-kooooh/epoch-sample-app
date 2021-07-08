@@ -13,10 +13,6 @@ spec:
       labels:
         name: ui-app
     spec:
-      volumes:
-      - name: ui-conf
-        configMap:
-          name: ui-app-conf
       containers:
       - name: ui-app
         image: {{ image }}:{{ image_tag }}
@@ -24,9 +20,6 @@ spec:
         - name: http
           containerPort: 8000
           protocol: TCP
-        volumeMounts:
-        - name: ui-conf
-          mountPath: /app/js/config
   strategy:
     blueGreen:
       activeService: ui-app-bluegreen-active
