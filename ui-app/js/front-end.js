@@ -16,6 +16,7 @@
 
 var location_host = window.location.hostname;
 var location_prot = window.location.protocol;
+var api_port = parseInt(window.location.port) + 1;
 var api_url_base = location_prot + "//" + location_host + ":" + api_port;
 
 function getPriceLoop(currency)

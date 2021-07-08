@@ -47,7 +47,7 @@ spec:
     port: 8000
     protocol: TCP
     targetPort: 8000
-    nodePort: 31002
+    nodePort: {{ port_no_active }}
   selector:
     name: api-app
 
@@ -65,6 +65,6 @@ spec:
     port: 8000
     protocol: TCP
     targetPort: 8000
-    nodePort: 32002
+    nodePort: {{ port_no_preview }}
   selector:
     name: api-app
