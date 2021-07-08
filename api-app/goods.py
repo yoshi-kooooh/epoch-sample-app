@@ -97,7 +97,35 @@ def index_goods_id(goods_id, cur):
                 }
             )
 
-        return jsonify({"result": "200", "goods": resp_goods}), 200
+        return jsonify({"result": "200", "goods": resp_goods, "time": str(datetime.now())}), 200
+
+    except Exception as e:
+        app.logger.error(''.join(list(traceback.TracebackException.from_exception(e).format())))
+        return jsonify({'result': '500'}), 500
+
+@app.route('/currencies', methods=['GET'])
+def index_currencies():
+    """Get currencies
+
+    Returns:
+        Response: HTTP Respose
+    """
+    app.logger.debug("call index_currencies()")
+
+    try:
+        # read currency list file
+        with open(os.path.dirname(os.path.abspath(__file__)) + '/data/currency.json', 'r', encoding='utf-8') as currency_fp:
+            currencies = json.load(currency_fp)
+
+        resp_currencies = []
+        for key_str in currencies.keys():
+            item = {
+                "label": key_str,
+                "value": key_str,
+            }
+            resp_currencies.append(item)
+
+        return jsonify({"result": "200", "currencies": resp_currencies, "time": str(datetime.now())}), 200
 
     except Exception as e:
         app.logger.error(''.join(list(traceback.TracebackException.from_exception(e).format())))

@@ -25,7 +25,7 @@ RUN apt-get -y update   \
 
 WORKDIR /app
 
-COPY . /app
+COPY ./api-app /app
 
 CMD ["python3", "/app/goods.py"]
 

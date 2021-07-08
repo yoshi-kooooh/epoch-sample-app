@@ -1,0 +1,82 @@
+@charset "utf-8";
+/*
+#   Copyright 2019 NEC Corporation
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+*/
+#loading_mask{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:99999;
+    background:rgba(255, 255, 255, 0.8);
+    top:0;
+    left:0;
+    display:none;
+}
+@keyframes spin { 
+    0% { transform: rotate(0deg); opacity: 0.2; }
+    /*0%の時は20％の透明度*/
+    50% { transform: rotate(180deg); opacity: 1.0; }
+    /*50%の時は透明度なし*/
+    100% { transform: rotate(360deg); opacity: 0.2; }
+    /*100%の時に20％の透明度に戻る*/ 
+}
+#loading_mask .le_loadingBox .mask_icon{
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 12px solid #9498a4;
+    border-right-color: transparent;
+    animation: spin 1s linear infinite;
+}
+#loading_mask .le_loadingBox .loadingMsg{
+    animation: none !important;
+    margin: 1em auto 0;
+    text-align: center;
+    font-size: 21px; 
+    line-height:21px;
+    color: #666;
+}
+#loading_mask .le_loadingBox{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-62px;
+    margin-top:-70px;
+    text-align: center;
+}
+
+.cms_currency_layout{
+    border: 0px solid;
+    border-color: red;
+    margin:0 auto;
+    position:relative;
+    float : left;
+    height: inherit;
+}
+
+@media screen and (min-width:1200px){
+    .cms_background_layout_color_f4c64982-a494-4a18-86c8-4278c440c33d{
+        padding-top:;
+        padding-bottom:;
+        padding-left:;
+        padding-right:;
+        box-sizing:border-box;
+    }
+}
+
+.cms_layoutBox_auto_height .layoutBox-sm:empty{
+    height:100px;
+}

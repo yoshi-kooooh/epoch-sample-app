@@ -90,13 +90,67 @@ function getPriceEachOne(elem, currency)
 
 }
 
-$(function() {
-  // プルダウンの初期値"YEN"をセット
-  getPriceLoop("YEN");
-});
+function getCurrencies()
+{
+    // API呼び出し
+    new Promise(function(resolve, reject) {
 
-$(function() { 
-  $('select').change(function() {
+        // APIの呼び出し
+        console.log("CALL : Get currencies");
+        api_param = {
+          "type": "GET",
+          "url": api_url_base + "/currencies",
+          dataType: "json",
+        }
+
+        $.ajax(api_param).done(function(data) {
+          console.log("DONE : Get currencies");
+          console.log("--- data ----");
+          console.log(JSON.stringify(data));
+          // 成功
+          var currencies_list = data['currencies'];
+
+          if(currencies_list.length == 0){
+            reject();
+          }
+
+          var $currencyBox = $('select[name="currencyBox"]');
+          currencies_list.forEach(function(item) {
+            var $option = $('<option></option>');
+            $option.addClass('currencyBoxFont');
+            $option.val(item.value);
+            $option.text(item.label);
+            $currencyBox.append($option);
+          });
+          console.log("Set Finish : Currencies");
+
+          resolve();
+        }).fail(function() {
+          console.log("FAIL : Get currencies");
+          // 失敗
+          reject();
+        });
+
+      }).then(() => {
+
+        // プルダウンの初期値をセット
+        $('select[name="currencyBox"]').children('option:first-child').prop("selected", true);
+        $('select[name="currencyBox"]').change();
+
+        console.log('Complete !!');
+      }).catch(() => {
+        // 実行中ダイアログ表示
+        console.log('Fail !!');
+      });
+
+}
+
+$(function() {
+
+  // 通貨のプルダウンを作成
+  getCurrencies();
+
+  $('select[name="currencyBox"]').change(function() {
     // プルダウンの選択値をセット
     getPriceLoop($(this).val());
   });

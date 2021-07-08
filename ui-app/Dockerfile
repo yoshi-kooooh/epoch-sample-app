@@ -2,7 +2,7 @@ FROM	nginx
 
 WORKDIR /app
 
-COPY . /app
+COPY ./ui-app /app
 
 RUN	echo	"server {"		        	        >	/etc/nginx/conf.d/epochui.conf \
 &&	echo	"  listen    8000;"		                >>	/etc/nginx/conf.d/epochui.conf \
